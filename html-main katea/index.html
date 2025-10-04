@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+          
+    
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>La multi ani, Inuta!</title>
+  <link rel="stylesheet" href="/style.css">
+
+</head>
+<body class="scroll">
+
+    <canvas id="confetti-canvas"></canvas>
+
+  <div id="particles-js"></div>
+  
+  <div class="container">
+    <h1 data-aos="fade-up">La multi ani, Ecaterina!</h1>
+    <div class="birthday-text-container">
+      <p class="birthday-text" data-aos="fade-up">20 years!</p>
+    </div>
+
+    
+    <div class="gallery">
+      <img data-aos="fade-up" src="/images/1.jpg" alt="Photo 1">
+      <img data-aos="fade-up" src="/images/2.jpg" alt="Photo 2">
+      <img data-aos="fade-up" src="/images/3.jpg" alt="Photo 3">
+      <img data-aos="fade-up" src="/images/4.jpg" alt="Photo 4">
+      <img data-aos="fade-up" src="/images/5.jpg" alt="Photo 5">
+    </div>
+
+  <div>
+    <button id="sound-btn1" class="sound-btn">С днем рождения, Катюша!</button>
+    <button id="sound-btn2" class="sound-btn">Счастья, радости, улыбок!</button>
+    <button id="sound-btn3" class="sound-btn">Пусть все мечты сбываются,</button>
+    <button id="sound-btn4" class="sound-btn">A жизнь будет наполнена любовью и яркими моментами. </button>
+    <button id="sound-btn5" class="sound-btn">Happy birthday!</button>
+</div>
+  </div>
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js/dist/index.min.js"></script>
+  
+
+<script>
+    window.onload = function() {
+  var confettiSettings = {
+    target: 'confetti-canvas',
+    max: 200,
+    size: 2,
+    animate: true,
+    props: ['square', 'line', 'triangle', 'circle'],
+    colors: [[255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 0], [255, 0, 255], [0, 255, 255]]
+  };
+  var confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+
+  var backgroundMusic = new Audio('/audio/catea.mp3');
+  backgroundMusic.loop = true;
+  backgroundMusic.volume = 0.5;
+  
+  // Start playing immediately
+  var playPromise = backgroundMusic.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.catch(function(error) {
+      // Autoplay was prevented, try unmuting on first interaction
+      document.addEventListener('click', function() {
+        backgroundMusic.play();
+      }, { once: true });
+    });
+  }
+
+  var video = document.getElementById('video');
+  if (video) {
+    video.addEventListener('play', function() {
+      backgroundMusic.pause();
+    });
+    
+    video.addEventListener('pause', function() {
+      backgroundMusic.play();
+    });
+    
+    video.addEventListener('ended', function() {
+      backgroundMusic.play();
+    });
+  }
+};
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initializeaza AOS
+    AOS.init();
+  </script>
+
+<div class="video-container">
+  <h2 data-aos="fade-up">Special Birthday Message</h2>
+  <video id="video" controls>
+    <source src="/video/Katy Perry - Birthday (Lyric Video) - KatyPerryVEVO (720p, h264).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+</body>
+</html>

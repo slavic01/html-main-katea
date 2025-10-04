@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pacifico", cursive;
+  text-align: center;
+  color: #ffffff;
+  background: #4e54c8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url("https://usagif.com/wp-content/uploads/gif/confetti-22.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
+.sound-btn {
+  background: linear-gradient(135deg, #fdd835 0%, #fbc02d 100%);
+  border: none;
+  border-radius: 25px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  margin: 15px;
+  box-shadow: 0 4px 15px rgba(253, 216, 53, 0.4);
+  transform: translateY(0);
+}
+
+.sound-btn:hover {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff4000 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 64, 0, 0.5);
+}
+
+.container {
+  padding: 50px;
+}
+
+h1 {
+  font-size: 72px;
+  margin-bottom: 50px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  animation: pulse 2s infinite;
+}
+
+.birthday-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  height: 180px;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  border: 4px solid #fdd835;
+}
+
+.birthday-text {
+  font-size: 56px;
+  margin: 0;
+  padding: 0;
+  color: #4e54c8;
+  text-shadow: 3px 3px 6px rgba(78, 84, 200, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Gallery section */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.gallery img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.gallery img:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+  border-color: #fdd835;
+}
+
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+#audio {
+  display: none;
+}
+
+/* Balloons styles */
+.balloon {
+  position: absolute;
+  z-index: 2;
+}
+
+.balloon .balloon__string {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon .balloon__body {
+  position: relative;
+  width: 60px;
+  height: 80px;
+  background-color: #ffffff;
+  border-radius: 50% 50% 45% 45%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon .balloon__knot {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid #ffffff;
+  border-radius: 50%;
+  bottom: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon--blue .balloon__body {
+  background-color: #4e54c8;
+}
+
+.balloon--pink .balloon__body {
+  background-color: #ff6b6b;
+}
+
+.balloon--green .balloon__body {
+  background-color: #16a085;
+}
+
+.balloon--orange .balloon__body {
+  background-color: #f7b801;
+}
+
+/* Video container styling */
+.video-container {
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.video-container h2 {
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video-container video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
